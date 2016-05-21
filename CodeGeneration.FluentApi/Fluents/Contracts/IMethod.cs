@@ -11,6 +11,8 @@ namespace CodeGeneration.FluentApi.Fluents.Contracts
         IMethod MethodStatement(MemberAttributes modifiers, string name);
         
         IMethod Void();
+        IMethod NotVoid();
+
         IMethod WithType(Type returnType);
         IMethod WithType(string returnTypeName);
 

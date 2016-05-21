@@ -34,6 +34,7 @@ namespace CodeGeneration.FluentApi.IntTest.GivenCreatingFluent
                 .AddAttribute(TypeAttributes.Public)
                 .AddBaseType("IMapperGenerationService")
                 .InNamespace("CodeGeneration.Impl.ServiceLibrary.Services")
+                //Adding Contructors
                 .AddConstructor(
                     MemberFluentFactory
                         .InitConstructor()
@@ -42,14 +43,38 @@ namespace CodeGeneration.FluentApi.IntTest.GivenCreatingFluent
                         .AddParameter("codeGenerationDomainService", "ICodeGenerationDomainService", ParameterDirection.None)
                         .AddStatement(Statements.AssignStatement("_configuration","configuration"))
                         .AddStatement(Statements.AssignStatement("_codeGenerationDomainService","codeGenerationDomainService")))
+
+                //Adding Custom Attribute to the Class
                 .AddCustomAttribute("RegisterService")
+
+                //Adding Fields
+                /*
+                    private readonly IServiceLibraryConfiguration _configuration;
+                    private readonly ICodeGenerationDomainService _codeGenerationDomainService;
+                */
                 .AddField("_configuration","IServiceLibraryConfiguration")
                 .AddField("_codeGenerationDomainService","ICodeGenerationDomainService")
+
+                //Adding Method
+                /*
+                    public IEnumerable<ClassFile> GetAll(Func<ClassFile, bool> filter){
+                        throw new NotImplementedException();
+                    }
+                */
                 .AddMethod(MemberFluentFactory
                     .InitMethod()
                     .MethodStatement(MemberAttributes.Public | MemberAttributes.Final, "GetAll")
+                    .NotVoid()
+                    .WithType(typeof(IEnumerable<ClassFile>))
                     .AddParameter("filter", typeof(Func<ClassFile, bool>), ParameterDirection.None)
                     .AddStatement(Statements.ThrowExceptionStatement(Type.GetType("System.NotImplementedException"))))
+
+                //Adding Method
+                /*
+                    public void GenerateCodeFile(ClassFile codeFile, CodeOutputFormat outputFormat, CodeGenerationSettings settings) {
+                        throw new NotImplementedException();
+                    }
+                */
                 .AddMethod(MemberFluentFactory
                     .InitMethod()
                     .MethodStatement(MemberAttributes.Public | MemberAttributes.Final, "GenerateCodeFile")
@@ -73,10 +98,18 @@ namespace CodeGeneration.FluentApi.IntTest.GivenCreatingFluent
                 .AddImport(typeof(CodeGenerationSettings))
                 .AddImport(typeof(Func<ClassFile, bool>))
                 .AddAttribute(TypeAttributes.Public | TypeAttributes.Interface)
+                //Adding Method
+                /*
+                    IEnumerable<ClassFile> GetAll(Func<ClassFile,Boolean> filter);                    
+                */
                 .AddMethod(MemberAttributes.Public | MemberAttributes.Final, "GetAll", typeof(IEnumerable<ClassFile>), new []
                 {
                     MemberFluentFactory.InitParameter().Param("filter", typeof(Func<ClassFile, bool>), ParameterDirection.None)
                 })
+                //Adding Method
+                /*
+                    ClassFile GenerateCodeFile(ClassFile codeFile, CodeOutputFormat outputFormat, CodeGenerationSettings settings);
+                */
                 .AddMethod(MemberFluentFactory
                     .InitMethod()
                     .MethodStatement(MemberAttributes.Public | MemberAttributes.Final, "GenerateCodeFile")

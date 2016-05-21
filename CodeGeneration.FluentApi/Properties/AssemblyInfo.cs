@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CodeGeneration FluentApi C#")]
-[assembly: AssemblyDescription("Code generation fluent API in C#")]
+[assembly: AssemblyTitle("CodeGeneration FluentApi")]
+[assembly: AssemblyDescription("Code generation fluent API")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Marc Rabadan")]
 [assembly: AssemblyProduct("CodeGeneration.FluentApi")]
