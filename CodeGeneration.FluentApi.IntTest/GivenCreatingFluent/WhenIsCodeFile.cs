@@ -58,6 +58,7 @@ namespace CodeGeneration.FluentApi.IntTest.GivenCreatingFluent
                     .AddParameter("settings", typeof(CodeGenerationSettings), ParameterDirection.None)
                     .AddStatement(Statements.ThrowExceptionStatement(Type.GetType("System.NotImplementedException"))))
                 .SaveTo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            Assert.IsTrue(File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "MapperGenerationService.cs")));
         }
 
         [TestMethod]
@@ -84,6 +85,7 @@ namespace CodeGeneration.FluentApi.IntTest.GivenCreatingFluent
                     .AddParameter("outputFormat", typeof(CodeOutputFormat), ParameterDirection.None)
                     .AddParameter("settings", typeof(CodeGenerationSettings), ParameterDirection.None))
                 .SaveTo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            Assert.IsTrue(File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "IMapperGenerationService.cs")));
         }
 
         [TestMethod]
@@ -100,6 +102,7 @@ namespace CodeGeneration.FluentApi.IntTest.GivenCreatingFluent
                 .AddProperty<MockEntity, MockDTO>(c => c.AimsName, c => string.Format("{0} ({1})", c.Name, c.NIF.ToString()))
                 .AddProperty<MockEntity, MockDTO>(c => c.PhoneNumber, c => string.Format("(+{0}) {1}", c.Country.PrefixNumber, c.Country.Name))
                 .SaveTo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            Assert.IsTrue(File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "MockDTOToMockEntity.cs")));
         }
 
         [TestMethod]
@@ -120,6 +123,7 @@ namespace CodeGeneration.FluentApi.IntTest.GivenCreatingFluent
                     .AddStatement(Statements.MethodInvoke(typeof(Console), "WriteLine", Operators.ObjectValue("Hello World!!!")))
                     .AddStatement(Statements.MethodInvoke(typeof(Console), "ReadLine"))
                 ).SaveTo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            Assert.IsTrue(File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "ConsoleApp1.cs")));
         }
 
         [TestMethod]
@@ -143,6 +147,7 @@ namespace CodeGeneration.FluentApi.IntTest.GivenCreatingFluent
                 .ToCompile()
                 .Executable()
                 .SaveAs(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "ConsoleApp1.exe"));
+                 Assert.IsTrue(File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "ConsoleApp1.exe")));
         }
     }
 }
