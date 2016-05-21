@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CodeGeneration.FluentApi.IntTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP")]
+[assembly: AssemblyCompany("Marc Rabadan")]
 [assembly: AssemblyProduct("CodeGeneration.FluentApi.IntTest")]
-[assembly: AssemblyCopyright("Copyright © HP 2016")]
+[assembly: AssemblyCopyright("Copyright © Marc Rabadan 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
