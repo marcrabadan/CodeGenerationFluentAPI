@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95CA3BCD-639F-4197-8EDE-C109E2AC4D6A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeGeneration.FluentApi</RootNamespace>
+    <AssemblyName>CodeGeneration.FluentApi</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\CodeGenerationSettings.cs" />
+    <Compile Include="DTO\CodeUnit.cs" />
+    <Compile Include="DTO\Collections\AttributeArgumentCollection.cs" />
+    <Compile Include="DTO\Collections\BaseTypeCollection.cs" />
+    <Compile Include="DTO\Collections\ConstructorCollection.cs" />
+    <Compile Include="DTO\Collections\CustomAttributeCollection.cs" />
+    <Compile Include="DTO\Collections\FieldCollection.cs" />
+    <Compile Include="DTO\Collections\ImportCollection.cs" />
+    <Compile Include="DTO\Collections\MethodCollection.cs" />
+    <Compile Include="DTO\Collections\ParemeterCollection.cs" />
+    <Compile Include="DTO\Collections\PropertyCollection.cs" />
+    <Compile Include="DTO\Collections\StatementCollection.cs" />
+    <Compile Include="DTO\Compiler.cs" />
+    <Compile Include="DTO\InterfaceFile.cs" />
+    <Compile Include="DTO\Mapping.cs" />
+    <Compile Include="DTO\Members\BaseType.cs" />
+    <Compile Include="DTO\Members\Constructor.cs" />
+    <Compile Include="DTO\Members\Field.cs" />
+    <Compile Include="DTO\Members\Import.cs" />
+    <Compile Include="DTO\Members\Method.cs" />
+    <Compile Include="DTO\Members\Parameter.cs" />
+    <Compile Include="DTO\Members\Statement.cs" />
+    <Compile Include="Enums\CodeFileType.cs" />
+    <Compile Include="Enums\CodeOutputFormat.cs" />
+    <Compile Include="Enums\ParameterDirection.cs" />
+    <Compile Include="Extensions\CollectionExtension.cs" />
+    <Compile Include="Extensions\TypeExtension.cs" />
+    <Compile Include="Fluents\Contracts\IAttributeParameter.cs" />
+    <Compile Include="Fluents\Contracts\IBaseType.cs" />
+    <Compile Include="Fluents\Contracts\ICompiler.cs" />
+    <Compile Include="Fluents\Contracts\IContructor.cs" />
+    <Compile Include="Fluents\Contracts\ICustomAttribute.cs" />
+    <Compile Include="Fluents\Contracts\IField.cs" />
+    <Compile Include="Fluents\Contracts\IImport.cs" />
+    <Compile Include="Fluents\Contracts\IInterfaceFile.cs" />
+    <Compile Include="Fluents\Contracts\IMapping.cs" />
+    <Compile Include="Fluents\Contracts\IMethod.cs" />
+    <Compile Include="Fluents\Contracts\IParameter.cs" />
+    <Compile Include="Fluents\FluentFactory.cs" />
+    <Compile Include="Fluents\Members\MemberFluentFactory.cs" />
+    <Compile Include="Fluents\Contracts\IProperty.cs" />
+    <Compile Include="DTO\Members\AttributeParameter.cs" />
+    <Compile Include="DTO\ClassFile.cs" />
+    <Compile Include="Fluents\Contracts\IClassFile.cs" />
+    <Compile Include="DTO\Members\CustomAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DTO\Members\Property.cs" />
+    <Compile Include="Snippets\BasicStatements.cs" />
+    <Compile Include="Snippets\Expressions.cs" />
+    <Compile Include="Snippets\Operators.cs" />
+    <Compile Include="Snippets\Statements.cs" />
+    <Compile Include="Snippets\Variables.cs" />
+    <Compile Include="Translator\ExpressionToCodeObject.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
